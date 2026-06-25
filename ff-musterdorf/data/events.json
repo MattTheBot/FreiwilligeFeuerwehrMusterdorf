@@ -1,0 +1,30 @@
+[
+  {
+    "title": "Jahreshauptversammlung",
+    "date": "15. Juli 2026",
+    "time": "19:00 Uhr",
+    "location": "Feuerwehrhaus Musterdorf",
+    "description": "Rückblick und Vorschau, alle Mitglieder sind herzlich eingeladen."
+  },
+  {
+    "title": "Tag der offenen Tür",
+    "date": "22. August 2026",
+    "time": "10:00 – 17:00 Uhr",
+    "location": "Rund ums Feuerwehrhaus",
+    "description": "Fahrzeugschau, Vorführungen, Kinderprogramm und Verpflegung."
+  },
+  {
+    "title": "Herbstübung",
+    "date": "05. September 2026",
+    "time": "14:00 Uhr",
+    "location": "Übungsgelände Hinterwald",
+    "description": "Gemeinsame Übung mit den Nachbarwehren."
+  },
+  {
+    "title": "Christbaumverbrennen",
+    "date": "09. Jänner 2027",
+    "time": "17:00 Uhr",
+    "location": "Sportplatz Musterdorf",
+    "description": "Traditionelles Christbaumverbrennen mit Glühwein und Musik."
+  }
+]
