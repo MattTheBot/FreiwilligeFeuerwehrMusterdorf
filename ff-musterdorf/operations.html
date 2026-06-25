@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FF Musterdorf – Einsätze</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            heading: ['Oswald', 'sans-serif'],
+            body: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            fire: { navy: '#0a1929', 700: '#b91c1c', 500: '#dc2626', 200: '#fecaca' },
+          },
+        },
+      },
+    };
+  </script>
+</head>
+<body class="font-body bg-gray-50 text-gray-800">
+
+  <header class="bg-fire-navy text-white shadow-md sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 flex items-center justify-between h-16">
+      <a href="index.html" class="flex items-center gap-3">
+        <span class="text-3xl">🚒</span>
+        <span class="font-heading text-xl font-bold">FF Musterdorf</span>
+      </a>
+      <nav class="hidden md:flex space-x-6 text-sm font-semibold uppercase tracking-wider">
+        <a href="index.html" class="hover:text-fire-200">Home</a>
+        <a href="about.html" class="hover:text-fire-200">Über uns</a>
+        <a href="operations.html" class="hover:text-fire-200 border-b-2 border-fire-500">Einsätze</a>
+        <a href="events.html" class="hover:text-fire-200">Termine</a>
+        <a href="contact.html" class="hover:text-fire-200">Kontakt</a>
+      </nav>
+      <button id="menu-btn" class="md:hidden text-white focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+    <div id="mobile-menu" class="md:hidden hidden bg-fire-700 px-4 pb-4 space-y-2">
+      <a href="index.html" class="block py-1">Home</a>
+      <a href="about.html" class="block py-1">Über uns</a>
+      <a href="operations.html" class="block py-1">Einsätze</a>
+      <a href="events.html" class="block py-1">Termine</a>
+      <a href="contact.html" class="block py-1">Kontakt</a>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-4 py-16 md:py-24">
+    <h1 class="font-heading text-3xl md:text-5xl font-bold text-fire-navy mb-8">Letzte Einsätze</h1>
+    <div id="operations-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- injected by JS -->
+    </div>
+  </main>
+
+  <footer class="bg-fire-navy text-white/70 py-6 text-center text-sm">
+    <p>&copy; 2026 FF Musterdorf | Alle Rechte vorbehalten</p>
+  </footer>
+
+  <script>
+    document.getElementById('menu-btn').addEventListener('click', () => {
+      document.getElementById('mobile-menu').classList.toggle('hidden');
+    });
+
+    fetch('data/operations.json')
+      .then(res => res.json())
+      .then(ops => {
+        const grid = document.getElementById('operations-grid');
+        grid.innerHTML = ops.map(op => `
+          <div class="bg-white rounded-xl shadow-sm overflow-hidden">
+            <img src="${op.image}" alt="${op.title}" class="w-full h-48 object-cover">
+            <div class="p-4">
+              <span class="text-xs font-semibold text-fire-500 uppercase">${op.date}</span>
+              <h3 class="font-heading text-xl mt-1">${op.title}</h3>
+              <p class="text-gray-600 text-sm mt-1">${op.description}</p>
+            </div>
+          </div>
+        `).join('');
+      })
+      .catch(err => console.error('Could not load operations', err));
+  </script>
+</body>
+</html>
