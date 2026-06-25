@@ -1,1 +1,47 @@
-# moved from ff-musterdorf/admin/config.yml
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "general"
+    label: "Allgemeine Einstellungen"
+    files:
+      - file: "data/general.json"
+        name: "general"
+        label: "Startseite"
+        fields:
+          - {label: "Hero Headline", name: "heroHeadline", widget: "string"}
+          - {label: "Hero Subheadline", name: "heroSubheadline", widget: "text"}
+          - {label: "Hero Image", name: "heroImage", widget: "image"}
+          - label: "Statistiken"
+            name: "stats"
+            widget: "list"
+            fields:
+              - {label: "Zahl", name: "number", widget: "string"}
+              - {label: "Bezeichnung", name: "label", widget: "string"}
+
+  - name: "operations"
+    label: "Einsätze"
+    folder: "data/operations"
+    create: true
+    format: "json"
+    fields:
+      - {label: "Titel", name: "title", widget: "string"}
+      - {label: "Datum", name: "date", widget: "string"}
+      - {label: "Beschreibung", name: "description", widget: "text"}
+      - {label: "Bild", name: "image", widget: "image"}
+
+  - name: "events"
+    label: "Veranstaltungen"
+    folder: "data/events"
+    create: true
+    format: "json"
+    fields:
+      - {label: "Titel", name: "title", widget: "string"}
+      - {label: "Datum", name: "date", widget: "string"}
+      - {label: "Uhrzeit", name: "time", widget: "string"}
+      - {label: "Ort", name: "location", widget: "string"}
+      - {label: "Beschreibung", name: "description", widget: "text", required: false}

@@ -1,1 +1,11 @@
-{}
+{
+  "heroHeadline": "Ihre Sicherheit – unser Auftrag",
+  "heroSubheadline": "Freiwillige Feuerwehr Musterdorf – seit 1889 rund um die Uhr einsatzbereit.",
+  "heroImage": "https://images.unsplash.com/photo-1577563908411-5077b6dc7624?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+  "stats": [
+    { "number": "42", "label": "Aktive Mitglieder" },
+    { "number": "3", "label": "Fahrzeuge" },
+    { "number": "84", "label": "Einsätze 2025" },
+    { "number": "15", "label": "Jugendmitglieder" }
+  ]
+}
